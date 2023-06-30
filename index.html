@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Parabéns!</title>
+  <style>
+    body {
+      background-color: #F0F0F0;
+      font-family: Arial, sans-serif;
+      transition: background-color 1s;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .message {
+      font-size: 36px;
+      font-weight: bold;
+      color: #FF0000;
+      animation: blink 0.5s infinite alternate;
+      cursor: pointer;
+    }
+
+    @keyframes blink {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    .replacement {
+      font-size: 48px;
+      font-weight: bold;
+      color: transparent;
+      background-image: linear-gradient(to right, #444, gray);
+      background-clip: text;
+      -webkit-background-clip: text;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="message" onclick="replaceText()">Parabéns!</span>
+    <span class="replacement hidden" onclick="replaceText()">por ser GAY</span>
+  </div>
+
+  <script>
+    function replaceText() {
+      const message = document.querySelector('.message');
+      const replacement = document.querySelector('.replacement');
+      const body = document.querySelector('body');
+
+      message.style.display = 'none';
+      body.style.backgroundColor = '#000';
+      replacement.classList.remove('hidden');
+      setTimeout(() => {
+        replacement.style.opacity = 1;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
